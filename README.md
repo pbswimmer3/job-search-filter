@@ -83,3 +83,19 @@ Open `~/job_search/PRAD_PROFILE.md` in any text editor. It's standard Markdown. 
 - **Professional Experience** — More detail here means more accurate functional matching. If you complete a new project, add it so the scorer can recognize relevant JD overlap.
 
 Changes take effect on the next pipeline run — no code changes or restarts needed.
+
+**How to set up remote access to dashboard:**
+
+```bash
+sudo tailscale funnel --bg 8082
+```
+Once it runs, your dashboard will be live at:
+https://openclaw-vm.tail07c89.ts.net
+
+The exact domain is based on your tailnet name — the command output will confirm the full URL.
+
+Also make sure the dashboard server is running first:
+
+```bash
+cd ~/job_search/dashboard && node server.js &
+```
