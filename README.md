@@ -87,9 +87,9 @@ Changes take effect on the next pipeline run — no code changes or restarts nee
 ## How to set up remote access to dashboard:
 
 ```bash
-sudo tailscale funnel --bg 8082
+sudo tailscale serve --bg 8082
 ```
-Once it runs, your dashboard will be live at:
+Once it runs, your dashboard will be live (for all tailnet devices) at:
 https://openclaw-vm.tail07c89.ts.net
 
 The exact domain is based on your tailnet name — the command output will confirm the full URL.
