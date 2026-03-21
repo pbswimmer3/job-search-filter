@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Search Pipeline</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="stats-bar">
+    <span class="logo">JOBSEARCH</span>
+    <div class="stat">
+      <span class="stat-label">Active</span>
+      <span class="stat-value" id="stat-active">—</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Applied</span>
+      <span class="stat-value" id="stat-applied">—</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Interviewing</span>
+      <span class="stat-value" id="stat-interviewing">—</span>
+    </div>
+    <div class="stat">
+      <span class="stat-label">Avg Score</span>
+      <span class="stat-value" id="stat-avg-score">—</span>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" data-tab="qualified">Qualified</div>
+    <div class="tab" data-tab="unqualified">Unqualified</div>
+  </div>
+
+  <div id="qualified-view">
+    <div class="filter-bar">
+      <div class="filter-group">
+        <label>Status</label>
+        <select id="filter-status">
+          <option value="">All</option>
+          <option value="new">New</option>
+          <option value="applied">Applied</option>
+          <option value="interviewing">Interviewing</option>
+          <option value="offer">Offer</option>
+          <option value="rejected">Rejected</option>
+          <option value="archived">Archived</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Source</label>
+        <select id="filter-source">
+          <option value="">All</option>
+          <option value="linkedin">LinkedIn</option>
+          <option value="indeed">Indeed</option>
+          <option value="google">Google</option>
+          <option value="greenhouse">Greenhouse</option>
+          <option value="ashby">Ashby</option>
+        </select>
+      </div>
+      <div class="filter-group">
+        <label>Location</label>
+        <input type="text" id="filter-location" placeholder="e.g. San Francisco" style="background:#1a1a1a;border:1px solid #333;color:#ccc;padding:4px 8px;border-radius:3px;font-size:12px;font-family:'JetBrains Mono',monospace;width:140px;">
+      </div>
+      <div class="filter-group">
+        <input type="checkbox" id="filter-remote">
+        <label for="filter-remote">Remote Only</label>
+      </div>
+      <div class="filter-group">
+        <label>Min Score</label>
+        <input type="range" id="filter-score" min="50" max="100" value="50">
+        <span class="score-display" id="filter-score-display">50</span>
+      </div>
+    </div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Title</th>
+            <th>Score</th>
+            <th>Source</th>
+            <th>Location</th>
+            <th>Remote</th>
+            <th>Status</th>
+            <th>Found</th>
+          </tr>
+        </thead>
+        <tbody id="qualified-body"></tbody>
+      </table>
+      <div class="empty-state" id="qualified-empty" style="display:none;">No matching roles found.</div>
+    </div>
+  </div>
+
+  <div id="unqualified-view" style="display:none;">
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Company</th>
+            <th>Title</th>
+            <th>Score</th>
+            <th>Source</th>
+            <th>Location</th>
+            <th>Remote</th>
+            <th>Found</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody id="unqualified-body"></tbody>
+      </table>
+      <div class="empty-state" id="unqualified-empty" style="display:none;">No unqualified roles.</div>
+    </div>
+  </div>
+
+  <div class="modal-overlay" id="promote-modal">
+    <div class="modal">
+      <h3>Promote Role</h3>
+      <label style="color:#888;font-size:12px;">Override Score (50–100)</label>
+      <input type="number" id="promote-score" min="50" max="100" value="60">
+      <div class="modal-actions">
+        <button class="btn-cancel" onclick="closePromoteModal()">Cancel</button>
+        <button class="btn-confirm" onclick="confirmPromote()">Promote</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
