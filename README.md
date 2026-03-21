@@ -84,7 +84,7 @@ Open `~/job_search/PRAD_PROFILE.md` in any text editor. It's standard Markdown. 
 
 Changes take effect on the next pipeline run — no code changes or restarts needed.
 
-**How to set up remote access to dashboard:**
+## How to set up remote access to dashboard:
 
 ```bash
 sudo tailscale funnel --bg 8082
