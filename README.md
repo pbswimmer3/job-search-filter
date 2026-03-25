@@ -39,7 +39,7 @@ Accessible at http://localhost:8082. Runs as a persistent background service.
 sudo tailscale serve --bg 8082
 ```
 Once it runs, your dashboard will be live (for all tailnet devices) at:
-https://openclaw-vm.tail07c89.ts.net
+[https://openclaw-vm.tail07c89.ts.net](https://openclaw-vm.taild1c315.ts.net/)
 
 The exact domain is based on your tailnet name — the command output will confirm the full URL.
 
