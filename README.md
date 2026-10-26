@@ -1,5 +1,7 @@
 # Job Search Pipeline
 
+> **Status: disabled (2026-10-25).** The daily pipeline ran as an OpenClaw scheduled job on a self-hosted VM (the job was already paused; the VM was shut down on 2026-05-11 and retired on 2026-10-25). During a security cleanup the Discord webhook it posted to was deleted and its Moonshot API key revoked. The Vercel dashboard's last deployment (2026-03-21) failed, so nothing is live. The code stays here for reference; running it again needs a new webhook and API key.
+
 Automated daily job search pipeline that crawls multiple sources, scores roles against a candidate profile using Kimi K2.5, and serves a tracking dashboard.
 
 ## Setup
